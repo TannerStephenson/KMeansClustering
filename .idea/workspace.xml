@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AutoImportSettings">
-    <option name="autoReloadType" value="SELECTIVE" />
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="ef87584f-3d82-43f8-912b-0cab0fc649f8" name="Changes" comment="">
+    <list default="true" id="887afa3e-e32c-47da-804a-997b7e462b66" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClusterFiveOutput.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ClusterFiveOutput.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClusterFourOutput.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ClusterFourOutput.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClusterOneOutput.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ClusterOneOutput.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClusterSixOutput.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ClusterSixOutput.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClusterThreeOutput.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ClusterThreeOutput.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClusterTwoOutput.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ClusterTwoOutput.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/KMeans.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/KMeans.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -19,10 +24,10 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 4
-}</component>
-  <component name="ProjectId" id="2Y91koMGJXBhQ451yTm6HEyjBHA" />
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 3
+}]]></component>
+  <component name="ProjectId" id="2YB4kfMfjT6WhCRo4O0eSDBOmzP" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -32,11 +37,11 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -57,12 +62,12 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="ef87584f-3d82-43f8-912b-0cab0fc649f8" name="Changes" comment="" />
-      <created>1699923127109</created>
+      <changelist id="887afa3e-e32c-47da-804a-997b7e462b66" name="Changes" comment="" />
+      <created>1699985782725</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1699923127109</updated>
-      <workItem from="1699923128265" duration="7696000" />
+      <updated>1699985782725</updated>
+      <workItem from="1699985783871" duration="414000" />
     </task>
     <servers />
   </component>

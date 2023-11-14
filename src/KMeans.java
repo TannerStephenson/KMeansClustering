@@ -27,6 +27,7 @@ public class KMeans {
 
     public static void main(String [] args) {
         setData();
+        System.out.println(data);
         setRandomSeed();
         do {
             clearAllClusters();

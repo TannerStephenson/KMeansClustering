@@ -35,12 +35,7 @@ public class KMeans {
             kMeans(data);
             updateCentroid();
         }
-        System.out.println("Cluster size:" + clusterOne.size());
-        System.out.println("Cluster size:" + clusterTwo.size());
-        System.out.println("Cluster size:" + clusterThree.size());
-        System.out.println("Cluster size:" + clusterFour.size());
-        System.out.println("Cluster size:" + clusterFive.size());
-        System.out.println("Cluster size:" + clusterSix.size());
+        System.out.println("Clustering is complete!");
 
         writeToFile(clusterOne, "ClusterOne");
         writeToFile(clusterTwo, "ClusterTwo");
@@ -234,5 +229,6 @@ public class KMeans {
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
+        System.out.println("Writing to file is complete!");
     }
 }

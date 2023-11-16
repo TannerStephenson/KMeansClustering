@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class KMeans {
 
-    public static ArrayList<Double> data = new ArrayList<>();
+    public static ArrayList<ArrayList<Double>> data = new ArrayList<>();
     public static ArrayList<Double> clusterOne = new ArrayList<>();
     public static ArrayList<Double> clusterTwo = new ArrayList<>();
     public static ArrayList<Double> clusterThree = new ArrayList<>();
@@ -28,6 +28,7 @@ public class KMeans {
     public static void main(String [] args) {
         setData();
         System.out.println(data);
+        /*System.out.println(data);
         setRandomSeed();
         do {
             clearAllClusters();
@@ -38,7 +39,7 @@ public class KMeans {
         writeToFile(clusterThree, "ClusterThree");
         writeToFile(clusterFour, "ClusterFour");
         writeToFile(clusterFive, "ClusterFive");
-        writeToFile(clusterSix, "ClusterSix");
+        writeToFile(clusterSix, "ClusterSix");*/
     }
 
     public static void kMeans(ArrayList<Double> data) {
@@ -146,7 +147,7 @@ public class KMeans {
 
     // This method is designed to pick 6 random data points to start.
     public static void setRandomSeed() {
-        int listSize = data.size();
+        /*int listSize = data.size();
         int randomIndex = 0;
         Random random = new Random();
 
@@ -166,7 +167,7 @@ public class KMeans {
         centroidFive = data.get(randomIndex);
 
         randomIndex = random.nextInt(listSize);
-        centroidSix = data.get(randomIndex);
+        centroidSix = data.get(randomIndex);*/
     }
 
     // Adds all the data points from synthetic_control_data.txt to our arraylist.
@@ -176,11 +177,17 @@ public class KMeans {
         try {
             Scanner scan = new Scanner(file);
             while(scan.hasNext()) {
-                list.add(scan.nextDouble());
+                for (int i = 0; i < 60; i++) {
+
+                }
+                if (scan.hasNextDouble()) {
+                    list.add(scan.nextDouble());
+                } else {
+                    data.add(list);
+                }
             }
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
-        data = list;
     }
 }

@@ -50,6 +50,10 @@ public class KMeans {
         writeToFile(clusterSix, "ClusterSix");
     }
 
+    /**
+     * Description - Calculates the k-means algorithm.
+     * @param data - The entire list of data points from synthetic control data.
+     */
     public static void kMeans(ArrayList<ArrayList<Double>> data) {
         double smallestDistance;
         double[] distances = new double[MAX_CENTROIDS];
@@ -76,6 +80,11 @@ public class KMeans {
         }
     }
 
+    /**
+     * Description - Calculates the mean of an individual data point.
+     * @param cluster - The cluster of 60 data points.
+     * @return - The mean of the individual data point.
+     */
     public static double mean(ArrayList<Double> cluster) {
         double total = 0;
         for (int i = 0; i < cluster.size(); i++) {
@@ -84,10 +93,15 @@ public class KMeans {
         return total / cluster.size();
     }
 
+    /**
+     * Description - Returns the new centroid array list.
+     * @param cluster - The individual cluster.
+     * @return - The new calculated centroid.
+     */
     public static ArrayList<Double> calculateNewCentroid(ArrayList<ArrayList<Double>> cluster) {
         int size = cluster.size();
         if (size == 0) {
-            return new ArrayList<>(); // Return an empty list if the cluster is empty.
+            return new ArrayList<>();
         }
 
         int dimension = cluster.get(0).size();
@@ -106,6 +120,11 @@ public class KMeans {
         return mean;
     }
 
+    /**
+     * Description - Assigns each datapoint array to a cluster.
+     * @param clusterIndex - The clusters index to be assigned.
+     * @param dataPoint - The array of data points.
+     */
     public static void assignToCluster(int clusterIndex, ArrayList<Double> dataPoint) {
         switch (clusterIndex) {
             case 0:
@@ -129,6 +148,9 @@ public class KMeans {
         }
     }
 
+    /**
+     * Description - Updates the new centroids.
+     */
     public static void updateCentroid() {
         centroidOne = calculateNewCentroid(clusterOne);
         centroidTwo = calculateNewCentroid(clusterTwo);
@@ -138,6 +160,9 @@ public class KMeans {
         centroidSix = calculateNewCentroid(clusterSix);
     }
 
+    /**
+     * - Refreshes the clusters.
+     */
     public static void clearAllClusters() {
         clusterOne.clear();
         clusterTwo.clear();
@@ -147,6 +172,11 @@ public class KMeans {
         clusterSix.clear();
     }
 
+    /**
+     * Description - Writes to our six output files.
+     * @param cluster - The cluster to be written.
+     * @param filename - The name for the file.
+     */
     public static void writeToFile(ArrayList<ArrayList<Double>> cluster, String filename) {
         try (FileWriter writer = new FileWriter(filename + "Output.txt")) {
             for (int i = 0; i < cluster.size(); i++) {
@@ -160,7 +190,9 @@ public class KMeans {
         }
     }
 
-    // This method is designed to pick 6 random data points to start.
+    /**
+     * Description - This method is designed to pick 6 random data points to start.
+     */
     public static void setRandomSeed() {
         int listSize = data.size();
         int randomIndex = 0;
@@ -185,7 +217,9 @@ public class KMeans {
         centroidSix = data.get(randomIndex);
     }
 
-    // Adds all the data points from synthetic_control_data.txt to our arraylist.
+    /**
+     * Description - Adds all the data points from synthetic_control_data.txt to our arraylist.
+     */
     public static void setData(){
         File file = new File("synthetic_control_data.txt");
         try {

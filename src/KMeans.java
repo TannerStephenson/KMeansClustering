@@ -27,7 +27,6 @@ public class KMeans {
 
     public static void main(String [] args) {
         setData();
-        //System.out.println(data);
         setRandomSeed();
 
         for (int i = 0; i < 75; i++) {
@@ -35,7 +34,6 @@ public class KMeans {
             kMeans(data);
             updateCentroid();
         }
-        System.out.println("Clustering is complete!");
 
         writeToFile(clusterOne, "ClusterOne");
         writeToFile(clusterTwo, "ClusterTwo");

@@ -10,59 +10,65 @@ import java.util.Scanner;
 public class KMeans {
 
     public static ArrayList<ArrayList<Double>> data = new ArrayList<>();
-    public static ArrayList<Double> clusterOne = new ArrayList<>();
-    public static ArrayList<Double> clusterTwo = new ArrayList<>();
-    public static ArrayList<Double> clusterThree = new ArrayList<>();
-    public static ArrayList<Double> clusterFour = new ArrayList<>();
-    public static ArrayList<Double> clusterFive = new ArrayList<>();
-    public static ArrayList<Double> clusterSix = new ArrayList<>();
-    public static double centroidOne;
-    public static double centroidTwo;
-    public static double centroidThree;
-    public static double centroidFour;
-    public static double centroidFive;
-    public static double centroidSix;
+    public static ArrayList<ArrayList<Double>> clusterOne = new ArrayList<>();
+    public static ArrayList<ArrayList<Double>> clusterTwo = new ArrayList<>();
+    public static ArrayList<ArrayList<Double>> clusterThree = new ArrayList<>();
+    public static ArrayList<ArrayList<Double>> clusterFour = new ArrayList<>();
+    public static ArrayList<ArrayList<Double>> clusterFive = new ArrayList<>();
+    public static ArrayList<ArrayList<Double>> clusterSix = new ArrayList<>();
+    public static ArrayList<Double> centroidOne;
+    public static ArrayList<Double> centroidTwo;
+    public static ArrayList<Double> centroidThree;
+    public static ArrayList<Double> centroidFour;
+    public static ArrayList<Double> centroidFive;
+    public static ArrayList<Double> centroidSix;
     public static final int MAX_CENTROIDS = 6;
     public static boolean finished = false;
 
     public static void main(String [] args) {
         setData();
-        System.out.println(data);
-        /*System.out.println(data);
+        //System.out.println(data);
         setRandomSeed();
-        do {
+
+        for (int i = 0; i < 75; i++) {
             clearAllClusters();
             kMeans(data);
-        } while(!finished);
+            updateCentroid();
+        }
+        System.out.println("Cluster size:" + clusterOne.size());
+        System.out.println("Cluster size:" + clusterTwo.size());
+        System.out.println("Cluster size:" + clusterThree.size());
+        System.out.println("Cluster size:" + clusterFour.size());
+        System.out.println("Cluster size:" + clusterFive.size());
+        System.out.println("Cluster size:" + clusterSix.size());
+
         writeToFile(clusterOne, "ClusterOne");
         writeToFile(clusterTwo, "ClusterTwo");
         writeToFile(clusterThree, "ClusterThree");
         writeToFile(clusterFour, "ClusterFour");
         writeToFile(clusterFive, "ClusterFive");
-        writeToFile(clusterSix, "ClusterSix");*/
+        writeToFile(clusterSix, "ClusterSix");
     }
 
-    public static void kMeans(ArrayList<Double> data) {
+    /**
+     * Description - Calculates the k-means algorithm.
+     * @param data - The entire list of data points from synthetic control data.
+     */
+    public static void kMeans(ArrayList<ArrayList<Double>> data) {
         double smallestDistance;
         double[] distances = new double[MAX_CENTROIDS];
-        double prevCentroidOne = centroidOne;
-        double prevCentroidTwo = centroidTwo;
-        double prevCentroidThree = centroidThree;
-        double prevCentroidFour = centroidFour;
-        double prevCentroidFive = centroidFive;
-        double prevCentroidSix = centroidSix;
-
 
         for (int i = 0; i < data.size(); i++) {
             int index = 0;
-            smallestDistance = 10000000;
-            double dataToCompare = data.get(i);
-            distances[0] = Math.abs(dataToCompare - centroidOne);
-            distances[1] = Math.abs(dataToCompare - centroidTwo);
-            distances[2] = Math.abs(dataToCompare - centroidThree);
-            distances[3] = Math.abs(dataToCompare - centroidFour);
-            distances[4] = Math.abs(dataToCompare - centroidFive);
-            distances[5] = Math.abs(dataToCompare - centroidSix);
+            smallestDistance = 1000000000;
+            ArrayList<Double> dataToCompare = data.get(i);
+            double dataMean = mean(dataToCompare);
+            distances[0] = Math.abs(dataMean - mean(centroidOne));
+            distances[1] = Math.abs(dataMean - mean(centroidTwo));
+            distances[2] = Math.abs(dataMean - mean(centroidThree));
+            distances[3] = Math.abs(dataMean - mean(centroidFour));
+            distances[4] = Math.abs(dataMean - mean(centroidFive));
+            distances[5] = Math.abs(dataMean - mean(centroidSix));
 
             for (int j = 0; j < MAX_CENTROIDS; j++) {
                 if (distances[j] < smallestDistance) {
@@ -72,20 +78,13 @@ public class KMeans {
             }
             assignToCluster(index, dataToCompare);
         }
-
-        if(!clusterOne.isEmpty()){
-            updateCentroid();
-        }
-
-        if (prevCentroidOne == centroidOne && prevCentroidTwo == centroidTwo &&
-                prevCentroidThree == centroidThree && prevCentroidFour == centroidFour &&
-                prevCentroidFive == centroidFive && prevCentroidSix == centroidSix) {
-            finished = true;
-        } else {
-            finished = false;
-        }
     }
 
+    /**
+     * Description - Calculates the mean of an individual data point.
+     * @param cluster - The cluster of 60 data points.
+     * @return - The mean of the individual data point.
+     */
     public static double mean(ArrayList<Double> cluster) {
         double total = 0;
         for (int i = 0; i < cluster.size(); i++) {
@@ -93,7 +92,40 @@ public class KMeans {
         }
         return total / cluster.size();
     }
-    public static void assignToCluster(int clusterIndex, double dataPoint) {
+
+    /**
+     * Description - Returns the new centroid array list.
+     * @param cluster - The individual cluster.
+     * @return - The new calculated centroid.
+     */
+    public static ArrayList<Double> calculateNewCentroid(ArrayList<ArrayList<Double>> cluster) {
+        int size = cluster.size();
+        if (size == 0) {
+            return new ArrayList<>();
+        }
+
+        int dimension = cluster.get(0).size();
+        ArrayList<Double> mean = new ArrayList<>(Collections.nCopies(dimension, 0.0));
+
+        for (ArrayList<Double> dataPoint : cluster) {
+            for (int i = 0; i < dimension; i++) {
+                mean.set(i, mean.get(i) + dataPoint.get(i));
+            }
+        }
+
+        for (int i = 0; i < dimension; i++) {
+            mean.set(i, mean.get(i) / size);
+        }
+
+        return mean;
+    }
+
+    /**
+     * Description - Assigns each datapoint array to a cluster.
+     * @param clusterIndex - The clusters index to be assigned.
+     * @param dataPoint - The array of data points.
+     */
+    public static void assignToCluster(int clusterIndex, ArrayList<Double> dataPoint) {
         switch (clusterIndex) {
             case 0:
                 clusterOne.add(dataPoint);
@@ -116,15 +148,21 @@ public class KMeans {
         }
     }
 
+    /**
+     * Description - Updates the new centroids.
+     */
     public static void updateCentroid() {
-        centroidOne = mean(clusterOne);
-        centroidTwo = mean(clusterTwo);
-        centroidThree = mean(clusterThree);
-        centroidFour = mean(clusterFour);
-        centroidFive = mean(clusterFive);
-        centroidSix = mean(clusterSix);
+        centroidOne = calculateNewCentroid(clusterOne);
+        centroidTwo = calculateNewCentroid(clusterTwo);
+        centroidThree = calculateNewCentroid(clusterThree);
+        centroidFour = calculateNewCentroid(clusterFour);
+        centroidFive = calculateNewCentroid(clusterFive);
+        centroidSix = calculateNewCentroid(clusterSix);
     }
 
+    /**
+     * - Refreshes the clusters.
+     */
     public static void clearAllClusters() {
         clusterOne.clear();
         clusterTwo.clear();
@@ -134,20 +172,29 @@ public class KMeans {
         clusterSix.clear();
     }
 
-    public static void writeToFile(ArrayList<Double> cluster, String filename) {
-        try {
-            FileWriter writer = new FileWriter(filename + "Output.txt");
-            for(int i = 0; i < cluster.size(); i++) {
-                writer.write(String.format("%.4f ", cluster.get(i)));
+    /**
+     * Description - Writes to our six output files.
+     * @param cluster - The cluster to be written.
+     * @param filename - The name for the file.
+     */
+    public static void writeToFile(ArrayList<ArrayList<Double>> cluster, String filename) {
+        try (FileWriter writer = new FileWriter(filename + "Output.txt")) {
+            for (int i = 0; i < cluster.size(); i++) {
+                for (int j = 0; j < 60; j++) {
+                    writer.write(String.format("%.4f ", cluster.get(i).get(j)));
+                }
+                writer.write("\n");
             }
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
 
-    // This method is designed to pick 6 random data points to start.
+    /**
+     * Description - This method is designed to pick 6 random data points to start.
+     */
     public static void setRandomSeed() {
-        /*int listSize = data.size();
+        int listSize = data.size();
         int randomIndex = 0;
         Random random = new Random();
 
@@ -167,24 +214,22 @@ public class KMeans {
         centroidFive = data.get(randomIndex);
 
         randomIndex = random.nextInt(listSize);
-        centroidSix = data.get(randomIndex);*/
+        centroidSix = data.get(randomIndex);
     }
 
-    // Adds all the data points from synthetic_control_data.txt to our arraylist.
+    /**
+     * Description - Adds all the data points from synthetic_control_data.txt to our arraylist.
+     */
     public static void setData(){
-        ArrayList<Double> list = new ArrayList<>();
         File file = new File("synthetic_control_data.txt");
         try {
             Scanner scan = new Scanner(file);
             while(scan.hasNext()) {
+                ArrayList<Double> list = new ArrayList<>();
                 for (int i = 0; i < 60; i++) {
-
-                }
-                if (scan.hasNextDouble()) {
                     list.add(scan.nextDouble());
-                } else {
-                    data.add(list);
                 }
+                data.add(list);
             }
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);

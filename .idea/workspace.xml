@@ -1,17 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="887afa3e-e32c-47da-804a-997b7e462b66" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClusterFiveOutput.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ClusterFiveOutput.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClusterFourOutput.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ClusterFourOutput.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClusterOneOutput.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ClusterOneOutput.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClusterSixOutput.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ClusterSixOutput.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClusterThreeOutput.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ClusterThreeOutput.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClusterTwoOutput.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ClusterTwoOutput.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/KMeans.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/KMeans.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,27 +18,27 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 3
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
   <component name="ProjectId" id="2YB4kfMfjT6WhCRo4O0eSDBOmzP" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;SixtyDataPoints&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="KMeans" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="KMeans" />
@@ -68,6 +62,13 @@
       <option name="presentableId" value="Default" />
       <updated>1699985782725</updated>
       <workItem from="1699985783871" duration="414000" />
+      <workItem from="1699992504823" duration="12000" />
+      <workItem from="1700076687208" duration="15000" />
+      <workItem from="1700596507118" duration="7000" />
+      <workItem from="1700612629025" duration="191000" />
+      <workItem from="1701201866208" duration="6000" />
+      <workItem from="1701725589475" duration="149000" />
+      <workItem from="1705688679110" duration="178000" />
     </task>
     <servers />
   </component>
